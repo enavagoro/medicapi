@@ -41,4 +41,4 @@ for branch example: ´feature/personQREndpoint´
 
 ## License
 
-By contributing to this project, you agree that your work will be subject to the project's license. Please refer to the [LICENSE](LICENSE) file for more details.
+By contributing to this project, you agree that your work will be subject to the project's license. [LICENSE](LICENSE).
