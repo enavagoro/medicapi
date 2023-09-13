@@ -6,15 +6,16 @@ let personModel: any
 
 const defineMongooseSchema = () => {
     personSchema = new Schema<Person>({
-        firstName: { type: String},
+        firstName: { type: String },
         middleName: { type: String },
         lastName: { type: String },
+        emergencyContact: { type: String },
         secondLastName: { type: String },
         birthDate: { type: Date },
         rut: { type: String },
         status: { type: Boolean },
         medicalRecord: { type: Object },
-        userId: { type: String}
+        userId: { type: String }
     }, { timestamps: true })
 }
 

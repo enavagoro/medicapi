@@ -10,7 +10,8 @@ const personSchema = Joi.object({
   rut: Joi.string().required(),
   status: Joi.boolean(),
   userId: Joi.string().required(),
-  medicalRecord: Joi.object()
+  medicalRecord: Joi.object(),
+  emergencyContact: Joi.string()
 })
 
 export const validateInsertPerson = (req: Request, res: Response, next: NextFunction) => {
