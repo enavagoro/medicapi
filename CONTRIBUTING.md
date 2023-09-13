@@ -4,9 +4,9 @@ Thank you for considering contributing to the [Medicapi] project! Your contribut
 
 ## How to Contribute
 
-There are several ways you can contribute to the project:
+There are several ways you can contribute to the project
 
-1. **Report Issues**: If you find a bug, problem, or have a suggestion, please create a [new issue](https://github.com/enavagoro/medicapi/issues) on GitHub. Make sure to provide detailed information and, if possible, steps to reproduce the issue.
+1. **Report Issues**: If you find a bug, problem, or have a suggestion, please create a [new issue](https://github.com/AndeanCat-Club/medicapi/issues) on GitHub. Make sure to provide detailed information and, if possible, steps to reproduce the issue.
 
 2. **Bug Fixes**: If you want to fix an existing issue or improve the code, follow the steps below to contribute code.
 
