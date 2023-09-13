@@ -10,7 +10,8 @@ export interface Person {
   firstName: String
   middleName?: String // El segundo nombre es opcional
   lastName: String
-  secondLastName?: string // El segundo apellido es opcional
+  secondLastName?: String // El segundo apellido es opcional
+  emergencyContact?: String
   birthDate: Date
   rut: String
   status: Boolean
