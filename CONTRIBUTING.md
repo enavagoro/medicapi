@@ -1,6 +1,6 @@
-# Contributing to [Project Name]
+# Contributing to [Medicapi]
 
-Thank you for considering contributing to the [Project Name] project! Your contributions are essential in making this project successful and valuable to the community. Please take a moment to read these guidelines before getting started.
+Thank you for considering contributing to the [Medicapi] project! Your contributions are essential in making this project successful and valuable to the community. Please take a moment to read these guidelines before getting started.
 
 ## How to Contribute
 
