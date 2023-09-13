@@ -22,10 +22,10 @@ To get started with the Medical Information API, follow these steps:
 - You can just clone the repo, create a `.env` file (you can check the `env-example` file) and apply the comands `npm i` and then `npm run dev`
 
 ## Contributing
-We welcome contributions from the community! If you'd like to contribute to the development of Medicapi, please follow our [Contribution Guidelines](CONTRIBUTING).
+We welcome contributions from the community! If you'd like to contribute to the development of Medicapi, please follow our [Contribution Guidelines](CONTRIBUTING.md).
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
 ## Contact
 If you have any questions or need assistance, feel free to contact us at [a@a.com](mailto:a@a.com).
