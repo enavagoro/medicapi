@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors'
 import person from './person/route/person.route'
 import user from './user/route/user.route'
 import auth from './authorization/routes/auth.route'
@@ -11,6 +12,7 @@ const port: number | string = process.env.PORT || 3000
 
 app.set('port', port)
 app.use(express.json())
+app.use(cors());
 
 try {
     express.Router()
