@@ -16,6 +16,7 @@ export interface Person {
   rut: String
   status: Boolean
   medicalRecord: MedicalRecord
+  publicCode: String
   userId: String
 }
 

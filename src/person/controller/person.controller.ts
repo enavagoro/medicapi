@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import personModel from '../model/person.model'
 import { Person } from '../../shared/types/types'
+import { generateTokenByData } from '../../shared/utils/encrypth/encrypth.utils'
 
 export const list = async (_: Request, res: Response) => {
   try {
@@ -26,6 +27,10 @@ export const listByUserId = async (req: Request, res: Response) => {
 export const insert = async (req: Request, res: Response) => {
   try {
     const person: Person = req.body
+    const timestamp = new Date().getTime();
+    const obj = {randomKey: timestamp}
+    const tokenData = JSON.stringify(Object.assign({}, person, obj));
+    person.publicCode = generateTokenByData(tokenData)
     const response = await personModel.insert(person)
     res.status(201).send(response)
   } catch (error) {
@@ -58,6 +63,20 @@ export const getById = async (req: Request, res: Response) => {
   try {
     const id: string = req.params.id
     const response = await personModel.getById(id)
+    if(!response){
+      res.status(400).send('Bad Request')
+      return  
+    }
+    res.status(200).send(response)
+  } catch (error) {
+    res.status(500).send('Internal Server Error')
+  }
+}
+
+export const getPersonByPublicCode = async (req: Request, res: Response) => {
+  try {
+    const token: string = req.params.token
+    const response = await personModel.getPersonByPublicCode(token)
     if(!response){
       res.status(400).send('Bad Request')
       return  
