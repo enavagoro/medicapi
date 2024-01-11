@@ -45,7 +45,7 @@ const insert = async (personData: Person) => {
     return savedPerson
 }
 
-const update = async (id: string, dataToUpdate: Person) => {
+const update = async (id: string, dataToUpdate: Object) => {
     const updatedPerson = await personModel.findByIdAndUpdate(id, dataToUpdate, { new: true })
     return updatedPerson
 }
