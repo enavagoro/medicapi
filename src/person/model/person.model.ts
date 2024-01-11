@@ -15,6 +15,7 @@ const defineMongooseSchema = () => {
         rut: { type: String },
         status: { type: Boolean },
         medicalRecord: { type: Object },
+        publicCode: {type: String},
         userId: { type: String }
     }, { timestamps: true })
 }
@@ -59,11 +60,17 @@ const getById = async (id: string) => {
     return person
 }
 
+const getPersonByPublicCode = async (publicCode: string) => {
+    const person = await personModel.findOne({publicCode})
+    return person
+}
+
 export default {
     list,
     listByUserId,
     insert,
     update,
     deletePerson,
-    getById
+    getById,
+    getPersonByPublicCode
 }
