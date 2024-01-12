@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { list, listByUserId, insert, update, deletePerson, getById, getPersonByPublicCode, changePublicCode } from '../controller/person.controller'
+import { list, listByUserId, insert, update, deletePerson, getById, getPersonByPublicCode, changePublicCode, generateQRCode } from '../controller/person.controller'
 import personValidation from '../../shared/middlewares/schemas/person/index'
 import { validJWTNeeded } from '../../shared/middlewares/jwt.validation.middleware'
 
@@ -14,6 +14,7 @@ const routes = (): void => {
     router.patch('/:id', update)
     router.delete('/:id', deletePerson)
     router.post('/changePublicCode/:id', changePublicCode)
+    router.post('/generateQRCode', generateQRCode)
 }
 
 routes()
