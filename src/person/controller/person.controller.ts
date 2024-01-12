@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import personModel from '../model/person.model'
 import { Person } from '../../shared/types/types'
 import { generateUuid } from '../../shared/utils/idGenerator'
+import { generateQR } from '../../shared/services/qr-api.service'
 
 export const list = async (_: Request, res: Response) => {
   try {
@@ -92,6 +93,19 @@ export const changePublicCode = async (req: Request, res: Response) => {
     const response = await personModel.update(id, personDataToUpdate)
     res.status(200).send(response)
   } catch (error) {
+    res.status(500).send('Internal Server Error')
+  }
+}
+
+export const generateQRCode = async (req: Request, res: Response) => {
+  try {
+    const data: string = req.body.data
+    const responseBlob: any = await generateQR(data)
+    res.setHeader('Content-Type', 'image/png');
+    const buffer = await responseBlob.arrayBuffer()
+    res.status(200).send(Buffer.from(buffer))
+  } catch (error) {
+    console.log('err:', error)
     res.status(500).send('Internal Server Error')
   }
 }
