@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import personModel from '../model/person.model'
-import { Person } from '../../shared/types/types'
+import { JWTData, Person } from '../../shared/types/types'
 import { generateUuid } from '../../shared/utils/idGenerator'
 import { generateQR } from '../../shared/services/qr-api.service'
 
@@ -60,8 +60,9 @@ export const deletePerson = async (req: Request, res: Response) => {
 
 export const getById = async (req: Request, res: Response) => {
   try {
-    const id: string = req.params.id
-    const response = await personModel.getById(id)
+    const id: string = req.params.id    
+    const data : JWTData = req?.body?.jwtData?.data as JWTData;
+    const response = await personModel.getByIdAndUserId(id,data.id)
     if(!response){
       res.status(400).send('Bad Request')
       return  

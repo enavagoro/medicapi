@@ -4,6 +4,11 @@ export interface RequestWithJwt extends Request {
   jwt?: { [key: string]: any }
 }
 
+export interface JWTData {  
+  name: String;
+  phone: String;
+  id: string;
+}
 //person
 
 export interface Person {

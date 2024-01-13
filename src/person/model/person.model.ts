@@ -60,6 +60,12 @@ const getById = async (id: string) => {
     return person
 }
 
+const getByIdAndUserId = async (id: string,userId : string) => {
+    const query = {_id:id,userId};    
+    const person = await personModel.findOne(query)
+    return person
+}
+
 const getPersonByPublicCode = async (publicCode: string) => {
     const person = await personModel.findOne({publicCode})
     return person
@@ -72,5 +78,6 @@ export default {
     update,
     deletePerson,
     getById,
+    getByIdAndUserId,
     getPersonByPublicCode
 }

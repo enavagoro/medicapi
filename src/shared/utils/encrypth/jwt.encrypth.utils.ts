@@ -4,7 +4,11 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 
 export const generateToken = (data: any): string | undefined => {
-    const payload = { data }
+    const payload = { data : {
+        name : data.name,
+        phone : data.phone,
+        id : data._id
+    } }
     const options = {
         expiresIn: '1h', // Set the token to expire in 1 hour
     }
