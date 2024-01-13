@@ -3,15 +3,15 @@ import Joi from 'joi'
 
 const personSchema = Joi.object({
   firstName: Joi.string().required(),
-  middleName: Joi.string(),
+  middleName: Joi.string().allow(""),
   lastName: Joi.string().required(),
-  secondLastName: Joi.string(),
+  secondLastName: Joi.string().allow(""),
   birthDate: Joi.date().required(),
   rut: Joi.string().required(),
   status: Joi.boolean(),
   userId: Joi.string().required(),
   medicalRecord: Joi.object(),
-  emergencyContact: Joi.string()
+  emergencyContact: Joi.string().allow("")
 })
 
 export const validateInsertPerson = (req: Request, res: Response, next: NextFunction) => {
