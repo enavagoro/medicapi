@@ -9,7 +9,7 @@ const routes = (): void => {
     router.get('/', validJWTNeeded, list)
     router.get('/listByUserId/:userId', listByUserId) // validJWTNeeded
     router.get('/getPersonByPublicCode/:token', getPersonByPublicCode)
-    router.get('/:id',isSameUser, getById)
+    router.get('/:id', getById) //to do (fix front first): disabled for now because front have an error
     router.post('/', personValidation.validateInsertPerson, insert)
     router.patch('/:id', update)
     router.delete('/:id', deletePerson)
