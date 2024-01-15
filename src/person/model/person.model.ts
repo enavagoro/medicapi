@@ -16,7 +16,8 @@ const defineMongooseSchema = () => {
         status: { type: Boolean },
         medicalRecord: { type: Object },
         publicCode: {type: String},
-        userId: { type: String }
+        userId: { type: String },
+        imageData: { type: Object }
     }, { timestamps: true })
 }
 
