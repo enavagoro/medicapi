@@ -41,6 +41,7 @@ export const update = async (req: Request, res: Response) => {
   try {
     const id: string = req.params.id
     const personDataToUpdate = req.body
+    console.log('personDataToUpdate:', personDataToUpdate);
     const response = await personModel.update(id, personDataToUpdate)
     res.status(200).send(response)
   } catch (error) {

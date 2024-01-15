@@ -23,6 +23,11 @@ export interface Person {
   medicalRecord: MedicalRecord
   publicCode: String
   userId: String
+  imageData: ImageData
+}
+
+interface ImageData {
+  filePath: String
 }
 
 export interface MedicalRecord {
