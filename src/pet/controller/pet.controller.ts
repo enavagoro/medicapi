@@ -28,6 +28,7 @@ export const listByUserId = async (req: Request, res: Response) => {
 export const insert = async (req: Request, res: Response) => {
   try {
     const pet: Pet = req.body    
+    console.log(pet)
     pet.publicCode = generateUuid()
     const response = await petModel.insert(pet)
     res.status(201).send(response)

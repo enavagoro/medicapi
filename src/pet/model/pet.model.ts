@@ -8,7 +8,7 @@ const defineMongooseSchema = () => {
     petSchema = new Schema<Pet>({
         name: { type: String },
         description: { type: String},
-        age: { type: Number },
+        age: { type: String },
         owner: { type: Object },
         species: { type: String },
         status: { type: Boolean },
