@@ -1,6 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import person from './person/route/person.route'
+import pet from './pet/route/pet.route'
 import user from './user/route/user.route'
 import auth from './authorization/routes/auth.route'
 import { connectToDb } from './shared/services/mongoose.service'
@@ -17,6 +18,7 @@ app.use(cors());
 try {
     express.Router()
     app.use('/person/', person)
+    app.use('/pet/', pet)
     app.use('/user/', user)
     app.use('/auth/', auth)
     connectToDb()
