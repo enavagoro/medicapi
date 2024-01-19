@@ -17,7 +17,7 @@ export interface Pet {
   age: Number
   animal: String
   species: String
-  owner: Object
+  owner: Owner
   status: Boolean
   logBook: LogBook[]
   publicCode: String
@@ -29,6 +29,13 @@ export interface LogBook {
   logDate: Date,
   title: String,
   descripción: String
+}
+
+export interface Owner {
+  name: String
+  emergencyContact: String
+  address: String
+  social: String
 }
 
 //person
