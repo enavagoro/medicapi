@@ -5,8 +5,8 @@ const router: Router = Router()
 
 const routes = (): void => {
     router.post('/', login)
-    router.post('/google/', googleAuth)
-    router.post('/google/callback/', googleCallback)
+    router.get('/google/', googleAuth)
+    router.get('/google/callback/', googleCallback)
 }
 
 routes()
