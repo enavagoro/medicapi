@@ -8,7 +8,7 @@ const defineMongooseSchema = () => {
     userSchema = new Schema<User>({
         name: { type: String, required: true },
         email: { type: String, unique: true, required: true },
-        phone: { type: String, required: true },
+        phone: { type: String },
         password: { type: String, required: true },
         status: { type: Boolean },
         recoverPasswordToken: { type: String },

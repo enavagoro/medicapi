@@ -4,7 +4,7 @@ import Joi from 'joi'
 const userSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().required(),
-  phone: Joi.string().required(),
+  phone: Joi.string().allow(''),
   password: Joi.string(),
   status: Joi.boolean(),
   isConfirmed: Joi.boolean()
