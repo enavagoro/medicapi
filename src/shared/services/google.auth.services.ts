@@ -4,10 +4,15 @@ import { GetTokenResponse } from 'google-auth-library/build/src/auth/oauth2clien
 
 dotenv.config()
 
+const clientId = process.env.GOOGLE_CLIENT_ID || '';
+const redirectUri = process.env.GOOGLE_REDIRECT_URI || '';
+const clientSecret = process.env.GOOGLE_CLIENT_SECRET || '';
+
 const client: any = new OAuth2Client({
-    clientId: process.env.GOOGLE_CLIENT_ID || '',
-    redirectUri: process.env.GOOGLE_REDIRECT_URI || '',
-  });
+    clientId,
+    redirectUri,
+    clientSecret
+});
 
 export const logGoogle = async () => {
     const authUrl = await client.generateAuthUrl({
@@ -23,7 +28,7 @@ export const logGoogleCallback = async (code: string | undefined) => {
 
     const ticket = await client.verifyIdToken({
       idToken: tokens.id_token,
-      audience: client.clientId,
+      audience: clientId,
     });
 
     const payload = ticket.getPayload();
