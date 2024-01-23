@@ -4,7 +4,7 @@ import { AuthData } from '../../shared/types/types'
 import userModel from '../../user/model/user.model'
 import { generateExternalToken, generateToken } from '../../shared/utils/encrypth/jwt.encrypth.utils'
 import { logGoogle, logGoogleCallback } from '../../shared/services/google.auth.services'
-import { getUrlLoginExternal, getUrlRegisterExternal } from '../../shared/utils/redirect/redirect.auth.urls'
+import { getUrlLoginExternal, getUrlRegisterExternal } from '../../shared/utils/urls/redirect.auth.urls'
 import { RequestWithJwt, JWTData } from '../../shared/types/types'
 import * as jwt from 'jsonwebtoken'
 import { generateUnixTimeStamp } from '../../shared/utils/utils'
@@ -79,10 +79,14 @@ export const registerExternal = async (req: RequestWithJwt, res: Response, next:
 
                 const decoded: any = jwt.decode(authorization[1]);
                 req.body.jwtData = decoded as JWTData;
-                if(!decoded.external){
+                console.log('req.body.jwtData:', decoded)
+
+                if(!decoded.data.external){
                     return res.status(401).send()
                 }
                 const user = decoded.data;
+                delete user.external
+
                 if (user.id) {
                     delete user.id
                 }
@@ -116,11 +120,15 @@ export const loginExternal = async (req: RequestWithJwt, res: Response, next: Ne
             req.jwt = jwt.verify(authorization[1], jwtSecret) as { [key: string]: any }
             const decoded: any = jwt.decode(authorization[1]);
             req.body.jwtData = decoded as JWTData;
-            if(!decoded.external){
+
+            if(!decoded.data.external){
                 return res.status(401).send()
             }
+            console.log('req.body.jwtData:', decoded)
             const user = decoded.data;
             const accessToken = generateToken(user)
+            console.log('accessToken', accessToken)
+
             res.status(201).send({ accessToken, userId: user.id })
           }
         } catch (err) {
