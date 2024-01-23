@@ -17,6 +17,7 @@ export const validJWTNeeded = (req: RequestWithJwt, res: Response, next: NextFun
         return next()
       }
     } catch (err) {
+      console.log('err:', err)
       return res.status(403).send()
     }
   } else {
