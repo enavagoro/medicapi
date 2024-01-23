@@ -19,7 +19,6 @@ export const insert = async (req: Request, res: Response) => {
         userData.password = encrypthPassword(userData.password)
         userData.status = true
         userData.isConfirmed = false
-
         // generate recuperation password and confirmation token
         const response = await userModel.insert(userData)
         res.status(201).send(response)
