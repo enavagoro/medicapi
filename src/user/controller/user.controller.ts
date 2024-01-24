@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import userModel from '../model/user.model'
 import { encrypthPassword, generatePasswordToken } from '../../shared/utils/encrypth/encrypth.utils'
 import { User } from '../../shared/types/types'
+import { sendEmail } from '../../shared/services/mail-server.service'
 
 export const list = async (_: Request, res: Response) => {
     try {
@@ -73,12 +74,13 @@ export const passwordRecovery = async (req: Request, res: Response) => {
 
         user.recoverPasswordToken = token
         await userModel.update(user._id, user)
-
+        await sendEmail(user)
         res.status(200).send({
             statusCode: 200,
             message: 'Operation Succesfully'
         })
     } catch (error) {
+        console.error(error)
         res.status(500).send('Internal Server Error')
     }
 }
